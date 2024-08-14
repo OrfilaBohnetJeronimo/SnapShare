@@ -1,0 +1,255 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FF6B6B, #FFD93D);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4ECDC4;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    color: #fff;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    flex: 1;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+#textInput, #imageInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: calc(100% - 22px);
+    border-radius: 8px;
+    border: 2px solid #4ECDC4;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #FFD93D;
+}
+
+.posts-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.post {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.post img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.post p {
+    margin: 0;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+.post .like-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+.post .like-btn:hover {
+    background-color: #FFD93D;
+}
+
+footer {
+    padding: 10px;
+    background-color: #4ECDC4;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin-top: auto;
+}
+
+.comment-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.comment-section input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 2px solid #4ECDC4;
+}
+
+.comment-section button {
+    padding: 8px 15px;
+    background-color: #4ECDC4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 0.9rem;
+}
+
+.comment-section button:hover {
+    background-color: #FFD93D;
+}
+
+.comment-list {
+    margin-top: 10px;
+}
+
+.comment {
+    background-color: #eef;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.post .username {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.comment .username {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.upload-section input,
+.upload-section button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #4ECDC4;
+    box-sizing: border-box;
+}
+
+#usernameInput {
+    width: calc(100% - 22px);
+}
+
+#textInput,
+#imageInput {
+    width: calc(100% - 22px);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #FFD93D;
+}
+
+.comment-section input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 2px solid #4ECDC4;
+}
+
+.comment-section button {
+    padding: 8px 15px;
+    background-color: #4ECDC4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 0.9rem;
+}
+
+.comment-section button:hover {
+    background-color: #FFD93D;
+}
+
+.post .username {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.comment .username {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 3px;
+}
