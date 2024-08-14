@@ -118,7 +118,8 @@ function addComment(post, commentText) {
         text: commentText
     });
 
-    localStorage.setItem('posts', JSON.stringify(JSON.parse(localStorage.getItem('posts')).map(p => p === post ? post : p)));
+    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    localStorage.setItem('posts', JSON.stringify(posts.map(p => p === post ? post : p)));
     displayPosts();
 }
 
