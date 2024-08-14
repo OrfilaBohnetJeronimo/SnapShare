@@ -83,6 +83,13 @@ function displayPosts() {
             }
             postDiv.appendChild(likeBtn);
 
+            const deletePostBtn = document.createElement('button');
+            deletePostBtn.textContent = 'Eliminar Publicación';
+            deletePostBtn.onclick = function() {
+                deletePost(postId);
+            }
+            postDiv.appendChild(deletePostBtn);
+
             const commentSection = document.createElement('div');
             commentSection.className = 'comment-section';
 
@@ -100,8 +107,8 @@ function displayPosts() {
             const commentList = document.createElement('div');
             commentList.className = 'comment-list';
 
-            post.comments.forEach(comment => {
-                addCommentToList(comment, commentList);
+            post.comments.forEach((comment, commentId) => {
+                addCommentToList(comment, commentId, commentList, postId);
             });
 
             commentSection.appendChild(commentInput);
@@ -135,7 +142,7 @@ function addComment(postId, commentText) {
 }
 
 // Función para añadir un comentario a la lista
-function addCommentToList(comment, commentList) {
+function addCommentToList(comment, commentId, commentList, postId) {
     const commentDiv = document.createElement('div');
     commentDiv.className = 'comment';
 
@@ -146,10 +153,39 @@ function addCommentToList(comment, commentList) {
     const commentTextSpan = document.createElement('span');
     commentTextSpan.textContent = comment.text;
 
+    const deleteCommentBtn = document.createElement('button');
+    deleteCommentBtn.textContent = 'Eliminar';
+    deleteCommentBtn.onclick = function() {
+        deleteComment(postId, commentId);
+    }
+
     commentDiv.appendChild(usernameSpan);
     commentDiv.appendChild(commentTextSpan);
+    commentDiv.appendChild(deleteCommentBtn);
 
     commentList.appendChild(commentDiv);
+}
+
+// Función para eliminar una publicación
+function deletePost(postId) {
+    database.ref('posts/' + postId).remove()
+        .then(() => {
+            displayPosts(); // Actualiza la visualización de publicaciones
+        })
+        .catch(error => {
+            console.error("Error al eliminar la publicación: ", error);
+        });
+}
+
+// Función para eliminar un comentario
+function deleteComment(postId, commentId) {
+    database.ref('posts/' + postId + '/comments/' + commentId).remove()
+        .then(() => {
+            displayPosts(); // Actualiza la visualización de publicaciones
+        })
+        .catch(error => {
+            console.error("Error al eliminar el comentario: ", error);
+        });
 }
 
 // Cargar publicaciones al inicio
